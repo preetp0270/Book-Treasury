@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full;
+  }
+  body {
+    @apply h-full bg-parchment-100 text-ink-950
+           dark:bg-night-950 dark:text-cream-100
+           transition-colors duration-300;
+  }
+  #root {
+    @apply h-full;
+  }
+}
+
+@layer components {
+  .book-page {
+    @apply bg-parchment-50 dark:bg-night-800
+           shadow-page dark:shadow-page-dark
+           rounded-sm border border-transparent dark:border-night-700/60;
+    background-image: theme('backgroundImage.paper-texture');
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+           bg-leather-600 hover:bg-leather-700 text-white font-medium
+           dark:bg-leather-500 dark:hover:bg-leather-400
+           transition-colors focus:outline-none focus:ring-2 focus:ring-leather-500/50
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-lg
+           text-ink-700 dark:text-cream-300
+           hover:bg-ink-100 dark:hover:bg-night-700
+           transition-colors focus:outline-none;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 rounded-lg
+           border border-ink-200 dark:border-night-600
+           bg-white dark:bg-night-850
+           text-ink-950 dark:text-cream-100
+           placeholder:text-ink-400 dark:placeholder:text-night-400
+           focus:outline-none focus:ring-2 focus:ring-leather-500/40
+           transition;
+  }
+}
+
+/* Smooth scrollbar */
+.editor-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.editor-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.editor-scroll::-webkit-scrollbar-thumb {
+  @apply bg-ink-300 dark:bg-night-600 rounded-full;
+}
+.editor-scroll::-webkit-scrollbar-thumb:hover {
+  @apply bg-ink-400 dark:bg-night-500;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
